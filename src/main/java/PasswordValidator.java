@@ -1,4 +1,9 @@
 public class PasswordValidator {
+
+    public static boolean validateAll(String password) {
+        return validateLength(password) && containsNumbers(password) && validateUpperLower(password);
+    }
+
     public static boolean validateLength(String password) {
 
         return (password.length() >=8);
@@ -13,5 +18,10 @@ public class PasswordValidator {
         }
 
         return false;
+    }
+
+    public static boolean validateUpperLower(String password) {
+        return !password.toLowerCase().equals(password)
+                && !password.toUpperCase().equals(password);
     }
 }

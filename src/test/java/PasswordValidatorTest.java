@@ -50,4 +50,36 @@ public class PasswordValidatorTest {
         // THEN
         assertTrue(actual);
     }
+
+
+
+    @Test
+    void expectedFalseWhenAllLowerCase() {
+        //GIVEN
+        String allLower = "sdbhigklr";
+        //WHEN
+        boolean actual = PasswordValidator.validateUpperLower(allLower);
+        //THEN
+        assertFalse(actual);
+    }
+
+    @Test
+    void expectedFalseWhenAllUpperCase() {
+        //GIVEN
+        String allUpper = "FJGREIGOET";
+        //WHEN
+        boolean actual = PasswordValidator.validateUpperLower(allUpper);
+        //THEN
+        assertFalse(actual);
+    }
+
+    @Test
+    void expectedTrueWhenPasswordContainsUpperAndLower() {
+        //GIVEN
+        String upperLower = "FJfjfkfdJDKF";
+        //WHEN
+        boolean actual = PasswordValidator.validateUpperLower(upperLower);
+        //THEN
+        assertTrue(actual);
+    }
 }
