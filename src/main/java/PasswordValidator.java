@@ -24,4 +24,18 @@ public class PasswordValidator {
         return !password.toLowerCase().equals(password)
                 && !password.toUpperCase().equals(password);
     }
+
+    public static boolean containsSpecialCharacters(String password) {
+        String[] specialCharacters = {"!", "§", "$", "%", "&", "?"};
+        for (String item : specialCharacters) {
+            if (password.contains(item))
+
+                return true;
+        }
+
+        return false;
+
+    }
+
+
 }

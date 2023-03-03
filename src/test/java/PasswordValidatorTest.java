@@ -82,4 +82,23 @@ public class PasswordValidatorTest {
         //THEN
         assertTrue(actual);
     }
+    @Test
+    void expectedTrueWhenPasswordContainsSpecialCharacters() {
+        // GIVEN
+        String specialCharacters = "Hello&§$%!";
+        // WHEN
+        boolean actual = PasswordValidator.containsSpecialCharacters(specialCharacters);
+        // THEN
+        assertTrue(actual);
+    }
+    @Test
+    void expectedFalseWhenPasswordContainsNoSpecialCharacters() {
+        // GIVEN
+        String specialCharacters = "Hello";
+        // WHEN
+        boolean actual = PasswordValidator.containsSpecialCharacters(specialCharacters);
+        // THEN
+        assertFalse(actual);
+    }
+
 }
