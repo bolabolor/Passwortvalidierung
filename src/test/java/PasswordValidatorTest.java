@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PasswordValidatorTest {
     @Test
@@ -31,4 +31,23 @@ public class PasswordValidatorTest {
         assertEquals(false, actual);
     }
 
+    @Test
+    void expectedFalseWhenPasswordDoesntContainsNumbers() {
+        // GIVEN
+        String noNumbers = "Hello";
+        // WHEN
+        boolean actual = PasswordValidator.containsNumbers(noNumbers);
+        // THEN
+        assertFalse(actual);
+    }
+
+    @Test
+    void expectedTrueWhenPasswordContainsNumbers() {
+        // GIVEN
+        String noNumbers = "Hello1";
+        // WHEN
+        boolean actual = PasswordValidator.containsNumbers(noNumbers);
+        // THEN
+        assertTrue(actual);
+    }
 }
